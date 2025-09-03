@@ -89,4 +89,8 @@ jobs:
             \n\nVercel deployment was skipped because the required secrets (VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID) are not configured in this repository.
             \n\nTo enable Vercel deployments, please add these secrets in the repository settings.`
           });
-
+          
+    # This step will always succeed, even if Vercel deployment is skipped
+    - name: Mark workflow as successful
+      if: steps.check-secrets.outputs.has_secrets == 'false'
+      run: echo "Vercel deployment skipped, but workflow marked as successful"
