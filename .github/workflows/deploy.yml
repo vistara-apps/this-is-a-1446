@@ -19,7 +19,7 @@ jobs:
         node-version: '22'
         cache: 'npm'
         
-        - name: Install dependencies
+    - name: Install dependencies
       run: npm install
 
     - name: Build application
@@ -62,7 +62,10 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `🚀 **Preview Deployment Ready!**
-              \n\n📱 **URL:** ${deploymentUrl}
-              \n\nThis preview will be automatically updated when you push new commits to this PR.`
+
+📱 **URL:** ${deploymentUrl}
+
+This preview will be automatically updated when you push new commits to this PR.`
             });
           }
+
